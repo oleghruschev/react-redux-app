@@ -16,15 +16,15 @@ module.exports = {
   entry: './src/client/index.js',
 
   output: {
+    publicPath: '/',
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'build'),
-    publicPath: '/'
   },
 
   resolve: {
     alias: {
-      images: path.resolve(__dirname, 'static/images'),
       vars: path.resolve(__dirname, 'src/scss/_vars'),
+      images: path.resolve(__dirname, 'static/images'),
     },
     extensions: [
       '.js',
@@ -33,8 +33,9 @@ module.exports = {
   },
   //Настройки локального сервера
   devServer: {
+    hot: true,
     contentBase: './build',
-    hot: true
+    historyApiFallback: true,
   },
 
   module: {
@@ -54,11 +55,11 @@ module.exports = {
       	use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               importLoaders: 1,
               modules: true,
-              localIdentName: "[name]__[local]___[hash:base64:5]"
+              localIdentName: '[name]__[local]___[hash:base64:5]'
             }
           },
           {

@@ -1,5 +1,7 @@
-import React  from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Provider } from 'react-redux'
+import React, { Fragment }  from 'react';
+import { createStore } from 'redux'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 import Page1 from '../components/Page1';
@@ -9,13 +11,17 @@ import Navigation from '../components/Navigation';
 const history = createBrowserHistory();
 
 const Root = () => (
-  <BrowserRouter history={history}>
-    <div>
-      <Route path='/' component={Navigation} />
-      <Route path='/page1' component={Page1} />
-      <Route path='/page2' component={Page2} />
-    </div>
-  </BrowserRouter>
+  <Provider store={createStore(() => {}, {})}>
+    <BrowserRouter history={history}>
+      <Navigation />
+      <Fragment>
+        <Switch>
+          <Route exact path='/' component={Page1} />
+          <Route path='/page2' component={Page2} />
+        </Switch>
+      </Fragment>
+    </BrowserRouter>
+  </Provider>
 );
 
 export default Root;

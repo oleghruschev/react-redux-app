@@ -4,7 +4,10 @@ import React, { Component } from 'react';
 
 import { confirmName } from 'actions/user';
 
+import CreateArticle from './CreateArticle';
+
 import styles from './Articles.scss';
+
 
 class Articles extends Component {
 
@@ -34,7 +37,7 @@ class Articles extends Component {
 
     return (
       <div className={styles.block}>
-        <div className={styles.img}/>
+        <CreateArticle />
         <p>Введите Ваше имя</p>
         <input
           value={userName}

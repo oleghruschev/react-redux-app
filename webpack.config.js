@@ -11,6 +11,8 @@ const MiniCssPlugin = new MiniCssExtractPlugin({
 });
 const HotModulePlugin = new webpack.HotModuleReplacementPlugin();
 
+const rootFolder = path.resolve(__dirname);
+
 module.exports = {
 
   entry: './src/client/index.js',
@@ -18,13 +20,17 @@ module.exports = {
   output: {
     publicPath: '/',
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(rootFolder, 'build'),
   },
 
   resolve: {
     alias: {
-      vars: path.resolve(__dirname, 'src/scss/_vars'),
-      images: path.resolve(__dirname, 'static/images'),
+      vars: path.resolve(rootFolder, 'src/scss/_vars'),
+      actions: path.resolve(rootFolder, 'src/actions'),
+      images: path.resolve(rootFolder, 'static/images'),
+      reducers: path.resolve(rootFolder, 'src/reducers'),
+      mixins: path.resolve(rootFolder, 'src/scss/_mixins'),
+      components: path.resolve(rootFolder, 'src/components'),
     },
     extensions: [
       '.js',

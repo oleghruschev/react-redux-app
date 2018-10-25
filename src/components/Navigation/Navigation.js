@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import style from './Navigation.scss';
+
 const Navigation = () => {
   return (
-    <div>
-      <Link to='/'>Page1</Link>
-      <Link to='/page2'>Page2</Link>
+    <div className={style.navigation}>
+      <Link to='/' className={style.link}>Статьи</Link>
+      <Link to='/page2' className={style.link}>Вторая страница</Link>
     </div>
   )
 }

@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import React, { Component } from 'react';
 
-import { confirmName } from '../../actions/user';
+import { confirmName } from 'actions/user';
 
-import styles from './Page1.scss';
+import styles from './Articles.scss';
 
-class Page1 extends Component {
+class Articles extends Component {
 
   static propTypes = {
     name: PropTypes.string.isRequired,
@@ -58,4 +58,4 @@ const mapDispatchToProps =  {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Page1);
+)(Articles);

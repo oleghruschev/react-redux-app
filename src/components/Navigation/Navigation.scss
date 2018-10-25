@@ -1,0 +1,17 @@
+@import 'mixins';
+
+.navigation {
+  @include flexBox(space-around);
+  height: 100px;
+}
+
+.link {
+  width: 170px;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 1px #000;
+
+  &:hover { font-size: 1.1em; }
+}

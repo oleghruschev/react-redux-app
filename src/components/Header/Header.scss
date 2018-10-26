@@ -2,7 +2,6 @@
 
 .header {
   @include flexBox(space-between);
-  margin-bottom: 36px;
   padding: 6px 40px;
   background: #cacdce;
   text-align: center;

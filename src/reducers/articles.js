@@ -9,8 +9,8 @@ const articles = (state = initialState, action) => {
     case actionTypes.ARTICLE_SET_CREATE:
       return {...state, list: action.list}
 
-    default: return state; 
+    default: return state;
   }
-}  
+}
 
 export default articles;

@@ -1,11 +1,16 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import React, { Component } from 'react';
 
 import styles from './CreateArticle.scss';
 
-import { setCreateArticle } from 'actions/articles';
+import { createArticle } from 'actions/articles';
 
 class CreateArticle extends Component {
+
+  static propTypes = {
+    createArticle: PropTypes.func.isRequired,
+  }
 
   state = {
     articleName: '',
@@ -17,22 +22,14 @@ class CreateArticle extends Component {
   }
 
   handleChangeArticleContent = (e) => {
-    this.setState({ articleContent: e.target.value })    
+    this.setState({ articleContent: e.target.value })
   }
 
   handleCreateArticle = () => {
-    const { setCreateArticle } = this.props;
+    const { createArticle } = this.props;
     const { articleName, articleContent } = this.state;
 
-    let list = [];
-    let article = {
-      id: 1,
-      articleName,
-      articleContent,
-    }
-    list.push(article);
-
-    setCreateArticle(list)
+    createArticle(articleName, articleContent);
 
     this.setState({
       articleName: '',
@@ -55,23 +52,23 @@ class CreateArticle extends Component {
           onChange={this.handleChangeArticleName}
         />
         <textarea
-          value={articleContent} 
+          value={articleContent}
           placeholder='Содержание статьи'
           className={styles.articleContent}
           onChange={this.handleChangeArticleContent}
-        />  
+        />
         <div className={styles.button}>
           <button onClick={this.handleCreateArticle}>
             Создать статью
           </button>
-        </div>  
+        </div>
       </div>
     );
   }
 }
 
 const mapDispatchToProps = {
-  setCreateArticle,
+  createArticle,
 }
 
 export default connect(

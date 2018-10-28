@@ -1,16 +1,19 @@
-import * as actionTypes from 'actions/actionTypes';
+import Immutable from 'immutable';
 
-const initialState = {
+import * as actionTypes from 'actions/actionTypes';
+import { immutableize } from 'helpers/immutableize';
+
+const initialState = Immutable.fromJS({
   list: [],
-}
+});
 
 const articles = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.ARTICLE_SET_CREATE:
-      return {...state, list: action.list}
+      return state.update('list', list => list.push(action.article))
 
     default: return state;
   }
 }
 
-export default articles;
+export default immutableize(articles);

@@ -27,6 +27,7 @@ module.exports = {
     alias: {
       vars: path.resolve(rootFolder, 'src/scss/_vars'),
       actions: path.resolve(rootFolder, 'src/actions'),
+      helpers: path.resolve(rootFolder, 'src/helpers'),
       images: path.resolve(rootFolder, 'static/images'),
       reducers: path.resolve(rootFolder, 'src/reducers'),
       mixins: path.resolve(rootFolder, 'src/scss/_mixins'),

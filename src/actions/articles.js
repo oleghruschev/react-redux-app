@@ -1,20 +1,34 @@
-import { ARTICLE_SET_CREATE } from './actionTypes';
+import * as actionTypes from 'actions/actionTypes';
 
-export const setCreateArticle = (article) => ({
-  type: ARTICLE_SET_CREATE,
+const setCreateArticle = (article) => ({
+  type: actionTypes.ARTICLE_SET_CREATE,
   article,
 });
+
+
+export const setOpenArticle = (id) => ({
+  type: actionTypes.ARTICLE_SET_OPEN,
+  id,
+});
+
+
+export const deleteArticle = (id) => ({
+  type: actionTypes.ARTICLE_DELETE,
+  id,
+})
+  
 
 export const createArticle = (title, content) => (dispatch, getState) => {
   const list = getState().articles.list;
   const id = list.length
     ? list[list.length - 1].id + 1
-    : 0
+    : 1
   const newArticle = {
     id,
     title,
     content,
   }
 
-  dispatch(setCreateArticle(list));
-}
+  dispatch(setOpenArticle(id));
+  dispatch(setCreateArticle(newArticle));
+};

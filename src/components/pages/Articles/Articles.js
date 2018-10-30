@@ -11,22 +11,24 @@ import styles from './Articles.scss';
 class Articles extends Component {
 
   static propTypes = {
-    list: PropTypes.array.isRequired,
+    list: PropTypes.array,
+    openArticle: PropTypes.number,
   }
 
   render() {
-    const { list } = this.props;
+    const { list, openArticle } = this.props;
 
     return (
       <div className={styles.articles}>
         <CreateArticle />
         {
-          Array.isArray(list) && list.map((list) => {
-            console.log(list)
-            return (
-                <Article key={list.id} title={list.title} content={list.content} />
-            )
-          })
+          Array.isArray(list) && list.map((article) => (
+            <Article
+              {...article}
+              key={article.id}
+              openArticle={openArticle}
+            />
+          ))
         }
       </div>
     )
@@ -34,7 +36,7 @@ class Articles extends Component {
 };
 
 const mapStateToProps = (state) => ({
-  list: state.articles.list,
+  ...state.articles,
 });
 
 export default connect(mapStateToProps)(Articles);

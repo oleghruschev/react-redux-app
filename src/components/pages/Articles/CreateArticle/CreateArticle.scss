@@ -1,6 +1,8 @@
+@import 'mixins';
+
 .wrapper {
-  margin: 0 auto;
-  width: 70%;
+  padding: 0 150px;
+  background-color: #f2f2f3;
 }
 
 .header {
@@ -25,13 +27,18 @@ textarea {
 }
 
 .button {
-  text-align: right;
+  @include flexBox(space-between);
+  position: relative;
+  padding-bottom: 20px;
 }
 
 button {
-  margin-bottom: 20px;
   padding: 8px;
   border-radius: 10px;
   cursor: pointer;
 }
 
+.error {
+  color: red;
+  font-style: italic;
+}

@@ -1,0 +1,62 @@
+.wrapper {
+  padding: 20px 150px;
+}
+
+.article {
+  border-bottom: 1px solid lightgrey;
+  box-shadow: 2px 4px 26px #c2c5d0;
+  border-radius: 6px;
+}
+
+.title {
+  padding: 10px 40px 10px 10px;
+  position: relative;
+
+  &:hover {
+    background: #f2f2f3;
+    cursor: pointer;
+
+    .arrow {
+      width: 18px;
+      height: 18px;
+      right: 15px;
+      top: 19px;
+    }
+  }
+
+  h2 {
+    font-size: 36px;
+    font-weight: 500;
+  }
+}
+
+.arrow {
+  position: absolute;
+  right: 16px;
+  top: 20px;
+  width: 16px;
+  height: 16px;
+  border-bottom: 1px solid grey;
+  border-right: 1px solid grey;
+  transform: rotate(45deg);
+}
+
+.content {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.deleteArticle {
+  padding: 10px;
+  text-align: right;
+  color: lightgrey;
+  
+  span {
+    cursor: pointer;
+    
+    &:hover {
+      color: grey;
+      text-decoration: underline;
+    }
+  }
+}

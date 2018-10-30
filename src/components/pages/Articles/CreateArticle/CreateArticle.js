@@ -13,8 +13,9 @@ class CreateArticle extends Component {
   }
 
   state = {
+    errorText: '',
     articleName: '',
-    articleContent: ''
+    articleContent: '',
   }
 
   handleChangeArticleName = (e) => {
@@ -29,16 +30,31 @@ class CreateArticle extends Component {
     const { createArticle } = this.props;
     const { articleName, articleContent } = this.state;
 
-    createArticle(articleName, articleContent);
+    if (articleName === '' && articleContent === '') {
+      this.setState({ errorText: 'Введите название статьи и заполните ее' })
+    }
 
-    this.setState({
-      articleName: '',
-      articleContent: ''
-    })
+    else if (articleName === '') {
+      this.setState({ errorText: 'Введите название статьи' })
+    }
+
+    else if (articleContent === '') {
+      this.setState({ errorText: 'Заполните статью' })
+    }
+
+    else {
+      createArticle(articleName, articleContent);
+
+      this.setState({
+        errorText: '',
+        articleName: '',
+        articleContent: '',
+      })
+    }
   }
 
   render() {
-    const { articleName, articleContent } = this.state;
+    const { articleName, articleContent, errorText } = this.state;
 
     return (
       <div className={styles.wrapper}>
@@ -58,6 +74,9 @@ class CreateArticle extends Component {
           onChange={this.handleChangeArticleContent}
         />
         <div className={styles.button}>
+          <span className={styles.error}>
+            {errorText}
+          </span> 
           <button onClick={this.handleCreateArticle}>
             Создать статью
           </button>

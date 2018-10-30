@@ -58,6 +58,10 @@ module.exports = {
         use: ['babel-loader', 'eslint-loader']
       },
       {
+        test : /\. css $ / ,
+        loader :  ' classnames! style! css '
+      },
+      {
       	test: /\.scss$/,
       	use: [
           MiniCssExtractPlugin.loader,

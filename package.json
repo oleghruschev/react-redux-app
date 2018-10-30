@@ -18,7 +18,7 @@
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "classnames": "^2.2.5",
+    "classnames-loader": "^2.0.0",
     "css-loader": "^1.0.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
@@ -46,6 +46,7 @@
     "webpack-dev-server": "^3.1.9"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "immutable": "^3.8.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",

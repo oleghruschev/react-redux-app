@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { connect } from 'react-redux';
 import React, { Component, Fragment } from 'react';
+import classNames from 'classnames-loader';
 
 import { setOpenArticle, deleteArticle } from 'actions/articles';
 
@@ -24,7 +24,7 @@ class Article extends Component {
     const { id, openArticle, setOpenArticle } = this.props;
 
     if (id === openArticle) setOpenArticle(0);
-    
+
     else setOpenArticle(id)
   }
 
@@ -38,8 +38,8 @@ class Article extends Component {
     const { id, title, content, openArticle } = this.props;
 
     const className = classNames(styles.wrapper, {
-      'open': id === openArticle,
-    })
+      open: id === openArticle,
+    });
 
     return (
       <div className={className}>

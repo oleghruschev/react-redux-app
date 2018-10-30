@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { connect } from 'react-redux';
 import React, { Component, Fragment } from 'react';
 
@@ -36,8 +37,12 @@ class Article extends Component {
   render() {
     const { id, title, content, openArticle } = this.props;
 
+    const className = classNames(styles.wrapper, {
+      'open': id === openArticle,
+    })
+
     return (
-      <div className={styles.wrapper}>
+      <div className={className}>
         <div className={styles.article}>
           <div className={styles.title} onClick={this.handleOpenArticle}>
             <h2>{title}</h2>
@@ -46,7 +51,7 @@ class Article extends Component {
           {
             openArticle === id && (
               <Fragment>
-                <p className={styles.content}>{content}</p>
+                <pre className={styles.content}>{content}</pre>
                 <div className={styles.deleteArticle} onClick={this.handleDeleteArticle}>
                   <span>Удалить статью</span>
                 </div>

@@ -3,10 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "jest": {
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
+  },
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
-    "dev": "webpack-dev-server --config ./webpack.config.js --mode development"
+    "dev": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "test": "jest"
   },
   "author": "Khrushchev Oleg",
   "license": "ISC",
@@ -15,6 +22,7 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
+    "babel-core": "^7.0.0-bridge",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "babel-plugin-transform-class-properties": "^6.24.1",

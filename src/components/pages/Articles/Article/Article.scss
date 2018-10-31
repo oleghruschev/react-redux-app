@@ -1,5 +1,7 @@
+@import 'mixins';
+
 .wrapper {
-  padding: 12px 150px;
+  padding: 12px 80px;
 }
 
 .article {
@@ -9,32 +11,25 @@
 }
 
 .title {
-  padding: 10px 46px 10px 10px;
-  position: relative;
+  @include flexBox(space-between);
+  padding: 10px 24px 10px 10px;
 
   &:hover {
     background: #f2f2f3;
     cursor: pointer;
-
-    .arrow {
-      width: 18px;
-      height: 18px;
-      right: 15px;
-      top: 19px;
-    }
   }
 
   h2 {
+    width: 92%;
     font-size: 36px;
     font-weight: 500;
     overflow: hidden;
   }
 }
-
+.arrowWrapper {
+  margin-bottom: 6px;
+}
 .arrow {
-  position: absolute;
-  right: 16px;
-  top: 20px;
   width: 16px;
   height: 16px;
   border-bottom: 1px solid grey;
@@ -42,8 +37,12 @@
   transform: rotate(45deg);
 }
 
+.open .arrowWrapper {
+  margin: 6px 0 0;
+}
+
 .open .arrow {
-  transform: rotate(180deg);
+  transform: rotate(225deg);
 }
 
 .content {

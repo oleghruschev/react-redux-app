@@ -3,7 +3,7 @@ import Immutable from 'immutable';
 import * as actionTypes from 'actions/actionTypes';
 import { immutableize } from 'helpers/immutableize';
 
-const initialState = Immutable.fromJS({
+export const initialState = Immutable.fromJS({
   list: [],
   openArticle: 0,
 });

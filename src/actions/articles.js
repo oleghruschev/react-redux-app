@@ -1,6 +1,6 @@
 import * as actionTypes from 'actions/actionTypes';
 
-const setCreateArticle = (article) => ({
+export const setCreateArticle = (article) => ({
   type: actionTypes.ARTICLE_SET_CREATE,
   article,
 });

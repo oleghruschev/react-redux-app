@@ -3,14 +3,6 @@ const webpack = require('webpack');
 const HtmlWebPackPlugin = require ('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const HtmlPlugin = new HtmlWebPackPlugin ({
-  template: './index.html'
-});
-const MiniCssPlugin = new MiniCssExtractPlugin({
-  filename: './style.css',
-});
-const HotModulePlugin = new webpack.HotModuleReplacementPlugin();
-
 const rootFolder = path.resolve(__dirname);
 
 module.exports = {
@@ -28,9 +20,10 @@ module.exports = {
       vars: path.resolve(rootFolder, 'src/scss/_vars'),
       actions: path.resolve(rootFolder, 'src/actions'),
       helpers: path.resolve(rootFolder, 'src/helpers'),
-      images: path.resolve(rootFolder, 'static/images'),
       reducers: path.resolve(rootFolder, 'src/reducers'),
-      mixins: path.resolve(rootFolder, 'src/scss/_mixins'),
+      constants: path.resolve(rootFolder, 'src/constants'),
+      images: path.resolve(rootFolder, 'src/assets/images'),
+      mixins: path.resolve(rootFolder, 'src/styles/_mixins'),
       components: path.resolve(rootFolder, 'src/components'),
     },
     extensions: [
@@ -90,8 +83,13 @@ module.exports = {
   },
 
   plugins: [
-    HtmlPlugin,
-    MiniCssPlugin,
-    HotModulePlugin,
+    new HtmlWebPackPlugin ({
+      title: 'react-redux-app',
+      template: path.resolve(rootFolder, './public/index.html')
+    }),
+    new MiniCssExtractPlugin({
+      filename: './style.css',
+    }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
 }

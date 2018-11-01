@@ -1,6 +1,6 @@
 import Immutable from 'immutable';
 
-import * as actionTypes from 'actions/actionTypes';
+import * as actionTypes from 'constants/actionTypes';
 import { immutableize } from 'helpers/immutableize';
 
 export const initialState = Immutable.fromJS({

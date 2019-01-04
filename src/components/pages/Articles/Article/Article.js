@@ -68,6 +68,10 @@ class Article extends Component {
   }
 };
 
+const mapStateToProps = (state) => ({
+  ...state.artices
+})
+
 const mapDispatchToProps = {
   deleteArticle,
   setOpenArticle,
@@ -75,6 +79,6 @@ const mapDispatchToProps = {
 
 
 export default connect(
-  () => ({}),
+  mapStateToProps,
   mapDispatchToProps
 )(Article);

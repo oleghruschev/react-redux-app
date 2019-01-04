@@ -7,7 +7,7 @@ const Navigation = () => {
   return (
     <div className={style.navigation}>
       <Link to='/' className={style.link}>Статьи</Link>
-      <Link to='/page2' className={style.link}>Вторая страница</Link>
+      <Link to='/page2' className={style.link}>Данные о пользователях</Link>
     </div>
   )
 }

@@ -9,7 +9,7 @@ import styles from './Articles.scss';
 
 
 class Articles extends Component {
-
+  
   static propTypes = {
     list: PropTypes.array,
     openArticle: PropTypes.number,

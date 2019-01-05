@@ -55,6 +55,8 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
+    "express": "^4.16.4",
     "immutable": "^3.8.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
@@ -62,6 +64,7 @@
     "react-router-dom": "^4.3.1",
     "react-router-redux": "^4.0.8",
     "redux": "^4.0.0",
+    "redux-saga": "^0.16.2",
     "redux-thunk": "^2.3.0"
   }
 }

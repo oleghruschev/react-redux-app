@@ -15,9 +15,7 @@ class Page2 extends Component {
     resetData()
   }
 
-  state = {
-    inputValue: ''
-  }
+  state = { inputValue: '' }
 
   handleOnChange = (e) => {
     this.setState({inputValue: e.target.value})
@@ -26,7 +24,7 @@ class Page2 extends Component {
   handleFetchInfoUser = () => {
     const { inputValue } = this.state;
     const { getUserInfoById } = this.props;
-
+    
     inputValue && getUserInfoById(inputValue)
   }
 

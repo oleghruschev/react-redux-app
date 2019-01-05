@@ -7,7 +7,7 @@ const rootFolder = path.resolve(__dirname);
 
 module.exports = {
 
-  entry: './src/index.js',
+  entry: ['babel-polyfill', './src/index.js'],
 
   output: {
     publicPath: '/',

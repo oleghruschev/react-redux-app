@@ -3,12 +3,17 @@ import React, { }  from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 
-import Layout from 'components/Layout';
+import Layout from './components/Layout';
 import Header from 'components/Header';
 import Page2 from 'components/pages/Page2';
 import Articles from 'components/pages/Articles';
 
-const history = createBrowserHistory();
+let history
+
+// Для серверного рендеринга, когда нет document
+if (typeof document !== 'undefined') {
+  history = createBrowserHistory()
+}
 
 const Root = () => (
   <Router history={history}>

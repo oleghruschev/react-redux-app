@@ -11,8 +11,9 @@
   },
   "scripts": {
     "build": "webpack",
+    "server": "webpack & nodemon ./build/server.js",
     "watch": "webpack --watch",
-    "dev": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "test": "jest"
   },
   "author": "Khrushchev Oleg",
@@ -21,6 +22,7 @@
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
@@ -57,7 +59,9 @@
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "express": "^4.16.4",
+    "history": "^4.7.2",
     "immutable": "^3.8.2",
+    "nodemon": "^1.18.9",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",

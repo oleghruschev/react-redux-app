@@ -10,9 +10,10 @@ import { watchFetcInfoFromServer } from 'actions/dataFromServer';
 const sagaMiddleware = createSagaMiddleware()
 
 const initialState = {};
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-// const enhancers = composeEnhancers(applyMiddleware(thunkMiddleware));
+const composeEnhancers = compose;
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const enhancers = composeEnhancers(applyMiddleware(sagaMiddleware));
+// const enhancers = composeEnhancers(applyMiddleware(thunkMiddleware));
 
 function* rootSaga() {
   yield all([

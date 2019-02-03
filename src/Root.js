@@ -1,14 +1,15 @@
 
 import React, { }  from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
+import { Router } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
 import createBrowserHistory from 'history/createBrowserHistory';
 
-import Layout from './components/Layout';
-import Header from 'components/Header';
-import Page2 from 'components/pages/Page2';
-import Articles from 'components/pages/Articles';
+import routes from './routes';
 
-let history
+import Header from 'components/Header';
+import Layout from './components/Layout';
+
+let history;
 
 // Для серверного рендеринга, когда нет document
 if (typeof document !== 'undefined') {
@@ -19,10 +20,7 @@ const Root = () => (
   <Router history={history}>
     <Layout>
       <Header />
-      <Switch>
-        <Route exact path='/' component={Articles} />
-        <Route path='/page2' component={Page2} />
-      </Switch>
+      {renderRoutes(routes)}
     </Layout>
   </Router>
 );

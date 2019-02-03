@@ -1,21 +1,22 @@
-import Express from 'express';
 import React from 'react'
+import Express from 'express';
 import { renderToString } from 'react-dom/server'
-import { StaticRouter, Route, Switch } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+
+import routes from '../routes';
+import { Provider } from 'react-redux';
+import { store } from '../configureStore';
 
 import Layout from 'components/Layout';
 import Header from 'components/Header';
-import Page2 from 'components/pages/Page2';
-import { Provider } from 'react-redux';
-import { store } from '../configureStore';
-import Articles from 'components/pages/Articles';
 
 const app = Express()
 
-//Server static files
-// app.use('/static', Express.static('build'));
-
 app.use(handleRender)
+//Server static files
+app.use('/static', Express.static(__dirname + '/build'));
+
 
 function handleRender(req, res) {
   const html = renderToString(
@@ -23,10 +24,7 @@ function handleRender(req, res) {
       <StaticRouter location={req.url}>
         <Layout>
           <Header />
-          <Switch>
-            <Route exact path='/' component={Articles} />
-            <Route path='/page2' component={Page2} />
-          </Switch>
+          {renderRoutes(routes)}
         </Layout>
       </StaticRouter>
     </Provider>
@@ -43,9 +41,10 @@ function renderFullPage(html, preloadedState) {
     <html>
       <head>
         <title>React-redux-app</title>
+        <link type="stylesheet" href ="/static/style.css" />
       </head>
       <body>
-        <div id="app">${html}</div>
+        <div id="app">${html}</div> 
         <script>
           window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
         </script>

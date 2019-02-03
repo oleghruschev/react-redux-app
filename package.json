@@ -11,6 +11,7 @@
   },
   "scripts": {
     "build": "webpack",
+    "server:rebuild": "rimraf build & npm run server",
     "server": "webpack & nodemon ./build/server.js",
     "watch": "webpack --watch",
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
@@ -65,6 +66,8 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-config": "^4.4.0-beta.6",
     "react-router-dom": "^4.3.1",
     "react-router-redux": "^4.0.8",
     "redux": "^4.0.0",

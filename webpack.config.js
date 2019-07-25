@@ -14,6 +14,7 @@ const alias = {
   images: path.resolve(rootFolder, 'src/assets/images'),
   mixins: path.resolve(rootFolder, 'src/styles/_mixins'),
   components: path.resolve(rootFolder, 'src/components'),
+  build: path.resolve(rootFolder, 'build'),
 }
 
 const browserConfig = {

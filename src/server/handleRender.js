@@ -14,6 +14,7 @@ import renderTemplate from './renderTemplate';
 
 
 const handleRender = (req, res) => {
+  
   try {
     const content = renderToString(
       <Provider store={store}>
@@ -26,7 +27,12 @@ const handleRender = (req, res) => {
       </Provider>
     )
   
-    const preloadedState = store.getState()
+    const preloadedState = store.getState();
+
+    if (req.url == '/favicon.ico') {
+      res.status(403)
+      return res.end(null)
+    }
 
     const existingUrl = routes.find(route => route.path === req.url)
 
@@ -35,13 +41,13 @@ const handleRender = (req, res) => {
       console.log('status: ', 404 + '\n')
 
       res.status(404)
-      res.send('<h2>Страница не существует 404</h2>')
+      return res.send('<h2>Страница не существует 404</h2>')
     }
 
     console.log('url: ', req.url,)
     console.log('status: ', 200 + '\n')
     res.status(200)
-    res.send(renderTemplate({ content, preloadedState }))
+    return res.send(renderTemplate({ content, preloadedState }))
   } catch (error) {
     
     console.log('url: ', req.url,)
@@ -49,7 +55,7 @@ const handleRender = (req, res) => {
     console.error(error)
 
     res.status(500)
-    res.send(error.toString())
+    return res.send(error.toString())
   }
 }
 

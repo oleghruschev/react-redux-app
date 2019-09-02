@@ -6,7 +6,8 @@ const app = express()
 
 //Server static files
 app.use(express.static('build'));
-app.get('*', handleRender)
+
+app.use(handleRender)
 
 
 app.listen(3000, () => {

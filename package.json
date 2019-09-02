@@ -11,9 +11,9 @@
   },
   "scripts": {
     "build": "webpack",
-    "prod": "rimraf build & webpack & nodemon ./build/server.js",
+    "prod": "set NODE_ENV=production& rimraf build & webpack --config ./webpack/webpack.config.js & nodemon ./build/server.js",
     "watch": "webpack --watch",
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "start": "webpack-dev-server --config ./webpack/webpack.config.js --mode development",
     "test": "jest"
   },
   "author": "Khrushchev Oleg",

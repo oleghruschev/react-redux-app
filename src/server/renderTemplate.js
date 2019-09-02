@@ -7,7 +7,7 @@ const renderTemplate = ({ content, preloadedState }) => {
         <link rel="stylesheet" href ="/style.css" />
       </head>
       <body>
-        <div id="app">${content}</div> 
+        <div id="app">${content.toString()}</div> 
         <script>
           window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
         </script>

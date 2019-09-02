@@ -10,3 +10,8 @@
 * Для unit-тестов используется ***jest*** и ***enzyme***.
 * Для решения проблемы глобальных стилей применяется ***css-modules***.
 * Имеется конфигурация ***eslint***.
+
+## Для внедрения typescript в проект были произведены следующие действия:
+ - Установлены зависимости `typescript`, `ts-loader`, `typings-for-css-modules-loader`
+ - В конфигурации webpack загрузчик `css-loader` заменен на `typings-for-css-modules-loader` для интеграции css модулей c typescript
+ - В корень проекта добавлен модуль tsconfig.json

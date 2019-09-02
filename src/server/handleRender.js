@@ -37,12 +37,11 @@ const handleRender = (req, res) => {
       res.status(404)
       res.send('<h2>Страница не существует 404</h2>')
     }
-  // const file = require('../../build/style.css')
+
     console.log('url: ', req.url,)
     console.log('status: ', 200 + '\n')
     res.status(200)
     res.send(renderTemplate({ content, preloadedState }))
-    // res.send(file)
   } catch (error) {
     
     console.log('url: ', req.url,)

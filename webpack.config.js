@@ -29,10 +29,7 @@ const browserConfig = {
 
   resolve: {
     alias,
-    extensions: [
-      '.js',
-      '.scss',
-    ],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss'],
   },
   //Настройки локального сервера
   devServer: {
@@ -43,32 +40,29 @@ const browserConfig = {
 
   module: {
     rules: [
+      // Все файлы с разрешениями '.ts' или '.tsx' будет обрабатывать 'ts-loader'
+      { test: /\.tsx?$/, use: ['ts-loader', 'babel-loader'] },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader']
       },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: ['babel-loader', 'eslint-loader']
-      },
+      // {
+      //   test: /\.js$/,
+      //   exclude: /node_modules/,
+      //   use: ['babel-loader', 'eslint-loader']
+      // },
       {
       	test: /\.scss$/,
       	use: [
           MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              modules: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]'
-            }
-          },
+          { loader: 'typings-for-css-modules-loader?modules&namedExport' },
+          // { loader: "css-modules-typescript-loader"},
           {
             loader: 'sass-loader',
             options: { sourceMap: true },
-          }
+          },
+          
       	]
       },
       {
@@ -85,6 +79,15 @@ const browserConfig = {
     ]
   },
 
+  // При импортировании модуля, чей путь совпадает с одним из указанных ниже,
+  // предположить, что соответствующая глобальная переменная существует, и использовать
+  // ее взамен. Это важно, так как позволяет избежать добавления в сборку всех зависимостей,
+  // что дает браузерам возможность кэшировать файлы библиотек между различными сборками.
+//   externals: {
+//     "react": "React",
+//     "react-dom": "ReactDOM"
+//   },
+
   plugins: [
     new HtmlWebPackPlugin ({
       title: 'react-redux-app',
@@ -93,6 +96,7 @@ const browserConfig = {
     new MiniCssExtractPlugin({
       filename: './style.css',
     }),
+    new webpack.WatchIgnorePlugin([/scss\.d\.ts$/]),
     new webpack.HotModuleReplacementPlugin(),
   ],
 }

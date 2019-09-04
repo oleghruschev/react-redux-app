@@ -18,12 +18,13 @@ const commonConfig = {
   module: {
     rules: [
       // Все файлы с разрешениями '.ts' или '.tsx' будет обрабатывать 'ts-loader'
-      { test: /\.tsx?$/, use: ['ts-loader', 'babel-loader'] },
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js(x)$/,
         exclude: /node_modules/,
         use: ['babel-loader']
       },
+      { test: /\.tsx?$/, use: ['babel-loader', 'ts-loader'], include: rootFolder },
+      
       // {
       //   test: /\.js$/,
       //   exclude: /node_modules/,
@@ -76,7 +77,7 @@ if (!isProduction) {
 
 const clientConfig = {
 
-  entry: ['babel-polyfill', './src/index.js'],
+  entry: ['babel-polyfill', './src/index.tsx'],
 
   output: {
     publicPath: '/',

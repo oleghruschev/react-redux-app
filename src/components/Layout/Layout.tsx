@@ -1,17 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import style from './Layout.scss';
 
 
-const Layout = ({ children }) => (
+interface IProps {
+  children: React.ReactNode
+}
+
+const Layout: React.FC<IProps> = ({ children }) => (
   <div className={style.content}>
     {children}
   </div>
 );
-
-Layout.propTypes = {
-  children: PropTypes.any,
-}
 
 export default Layout;

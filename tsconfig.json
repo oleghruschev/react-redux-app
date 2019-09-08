@@ -1,5 +1,12 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "types": ["src/types"],
+      "types/articlesTypes": ["src/types/articlesTypes"],
+      "constants": ["src/constants"],
+      
+    },
     "target": "ES6",
     "lib": [
       "dom",

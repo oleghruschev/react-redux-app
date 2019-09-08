@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import Root from './Root';
 import { store } from './configureStore';
 
+declare const module: any
+
 ReactDOM.render(
   <Provider store={store}>
     <Root />
@@ -12,4 +14,4 @@ ReactDOM.render(
   document.getElementById('app')
 )
 
-// module.hot.accept();
+module.hot.accept();

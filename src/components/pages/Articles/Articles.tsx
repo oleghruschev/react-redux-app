@@ -1,31 +1,32 @@
+import { RouteComponentProps } from '@reach/router'
 import * as React from 'react'
 import { connect } from 'react-redux';
-// import * as Redux from 'redux'
-import { RouteComponentProps } from '@reach/router'
 
-// import Article from './Article';
-// import CreateArticle from './CreateArticle';
+import Article from './Article';
+import CreateArticle from './CreateArticle';
 
-import { IArticles } from 'types/articlesTypes';
 import { IAppState } from 'types';
+import { IArticles } from 'types/articlesTypes';
 
 import styles from './Articles.scss';
 
 
 const Articles: React.FC<RouteComponentProps<IArticles>> = ({ list, openArticle }) => {
-console.log(list,openArticle)
+
   return (
     <div className={styles.articles}>
-      {/* <CreateArticle />
+      <CreateArticle />
       {
-        Array.isArray(list) && list.map((article) => (
+        Array.isArray(list) && list.map(({ id, title, content }) => (
           <Article
-            {...article}
-            key={article.id}
-            openArticle={openArticle}
+            id={id}
+            title={title}
+            content={content}
+            key={id}
+            articleOpen={openArticle || 0}
           />
         ))
-      } */}
+      }
     </div>
   )
 };

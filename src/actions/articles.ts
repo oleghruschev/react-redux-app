@@ -1,37 +1,37 @@
-import { put, takeEvery, select } from 'redux-saga/effects'
+import { put, select, takeEvery } from 'redux-saga/effects'
 
+import { IAppState } from 'types';
 import {
+  ARTICLE_CREATE,
+  ARTICLE_DELETE,
   ARTICLE_SET_CREATE,
   ARTICLE_SET_OPEN,
-  ARTICLE_DELETE,
-  ARTICLE_CREATE,
   IArticle,
-  SetCreateArticleAction,
-  CreateArticleAction,
-  OpenArticleAction,
-  DeleteArticleAction
+  ICreateArticleAction,
+  IDeleteArticleAction,
+  IOpenArticleAction,
+  ISetCreateArticleAction,
 } from 'types/articlesTypes';
-import { IAppState } from 'types';
 
 
-export const setCreateArticle = (payload: IArticle): SetCreateArticleAction => ({
+export const setCreateArticle = (payload: IArticle): ISetCreateArticleAction => ({
   type: ARTICLE_SET_CREATE,
   payload,
 });
 
   
-export const setOpenArticle = (id: number): OpenArticleAction => ({
+export const setOpenArticle = (id: number): IOpenArticleAction => ({
   type: ARTICLE_SET_OPEN,
   id,
 });
 
 
-export const deleteArticle = (id: number): DeleteArticleAction => ({
+export const deleteArticle = (id: number): IDeleteArticleAction => ({
   type: ARTICLE_DELETE,
   id,
 })
 
-export const createArticle = (title: string, content: string) => ({
+export const createArticle = (title: string, content: string): ICreateArticleAction  => ({
   type: ARTICLE_CREATE,
   title,
   content
@@ -41,7 +41,7 @@ export function* watchCreateArticle() {
   yield takeEvery(ARTICLE_CREATE, functionCreateArticle);
 }
 
-export function* functionCreateArticle(action: CreateArticleAction) {
+export function* functionCreateArticle(action: ICreateArticleAction) {
   const { title, content } = action;
 
   const getList = (state: IAppState) => state.articles.list;

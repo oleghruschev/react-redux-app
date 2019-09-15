@@ -1,11 +1,15 @@
 {
+  "rules": {
+    "ordered-imports": [false],
+    "object-literal-sort-keys": [false],
+    "jsx-no-lambda": [ false ]
+  },
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./src/",
     "paths": {
-      "types": ["src/types"],
-      "types/articlesTypes": ["src/types/articlesTypes"],
-      "constants": ["src/constants"],
-      
+      "types": ["types"],
+      "constants": ["constants"],
+      "constants/actionTypes": ["constants/actionTypes"]
     },
     "target": "ES6",
     "lib": [

@@ -16,25 +16,25 @@ export interface IArticles {
   openArticle: number
 }
 
-export interface CreateArticleAction {
+export interface ICreateArticleAction {
   type: typeof ARTICLE_CREATE,
   title: string,
   content: string
 }
 
-export interface SetCreateArticleAction {
+export interface ISetCreateArticleAction {
   type: typeof ARTICLE_SET_CREATE
   payload: IArticle
 }
 
-export interface OpenArticleAction {
+export interface IOpenArticleAction {
   type: typeof ARTICLE_SET_OPEN,
   id: number
 }
 
-export interface DeleteArticleAction {
+export interface IDeleteArticleAction {
   type: typeof ARTICLE_DELETE,
   id: number
 }
 
-export type ArticlesActionTypes = SetCreateArticleAction | OpenArticleAction | DeleteArticleAction
+export type ArticlesActionTypes = ISetCreateArticleAction | IOpenArticleAction | IDeleteArticleAction

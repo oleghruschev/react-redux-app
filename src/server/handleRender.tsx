@@ -1,19 +1,19 @@
+import * as express from "express";
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import { StaticRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
+import { StaticRouter } from 'react-router-dom';
 
-import routes from '../routes';
 import { Provider } from 'react-redux';
 import { store } from '../configureStore';
+import routes from '../routes';
 
-import Layout from 'components/Layout';
 import Header from 'components/Header';
+import Layout from 'components/Layout';
 
 import renderTemplate from './renderTemplate';
 
-
-const handleRender = (req, res) => {
+const handleRender = (req: express.Request, res: express.Response) => {
   
   try {
     const content = renderToString(
@@ -29,7 +29,7 @@ const handleRender = (req, res) => {
   
     const preloadedState = store.getState();
 
-    if (req.url == '/favicon.ico') {
+    if (req.url === '/favicon.ico') {
       res.status(403)
       return res.end(null)
     }

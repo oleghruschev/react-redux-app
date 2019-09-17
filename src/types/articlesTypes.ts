@@ -1,4 +1,3 @@
-// import { Action } from 'redux';
 export const ARTICLE_CREATE = 'ARTICLE_CREATE';
 export const ARTICLE_DELETE = 'ARTICLE_DELETE';
 export const ARTICLE_SET_OPEN = 'ARTICLE_SET_OPEN';
@@ -10,12 +9,12 @@ export interface IArticle {
   content: string
 }
 
-
 export interface IArticles {
   list: IArticle[],
   openArticle: number
 }
 
+// actions
 export interface ICreateArticleAction {
   type: typeof ARTICLE_CREATE,
   title: string,

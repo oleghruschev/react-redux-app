@@ -32,8 +32,7 @@ const Articles: React.FC<RouteComponentProps<IArticles>> = ({ list, openArticle 
 };
 
 const mapStateToProps = (state: IAppState): IArticles => ({
-  list: state.articles.list,
-  openArticle: state.articles.openArticle,
+  ...state.articles
 });
 
 export default connect(mapStateToProps)(Articles);

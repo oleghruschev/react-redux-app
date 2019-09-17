@@ -14,7 +14,7 @@ export interface IUserInfo {
 }
 
 export interface IPost {
-  id: number | string,
+  id: number,
   title: string,
   body: string
 }

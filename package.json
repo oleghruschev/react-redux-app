@@ -25,6 +25,7 @@
     "@babel/register": "^7.0.0",
     "@reach/router": "^1.2.1",
     "@types/classnames": "^2.2.9",
+    "@types/express": "^4.17.1",
     "@types/jest": "24.0.9",
     "@types/node": "11.10.4",
     "@types/reach__router": "^1.2.3",

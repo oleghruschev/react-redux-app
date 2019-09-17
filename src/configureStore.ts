@@ -1,11 +1,11 @@
 // import thunkMiddleware from 'redux-thunk';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga'
 import { all } from 'redux-saga/effects'
 
-import rootReducer from 'reducers';
 import { watchCreateArticle } from 'actions/articles';
 import { watchFetcInfoFromServer } from 'actions/serverData';
+import rootReducer from 'reducers';
 
 const sagaMiddleware = createSagaMiddleware()
 

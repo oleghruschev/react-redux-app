@@ -4,7 +4,7 @@ import handleRender from './handleRender';
 
 const app = express()
 
-//Server static files
+// Server static files
 app.use(express.static('build'));
 
 app.use(handleRender)

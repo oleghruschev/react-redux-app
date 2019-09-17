@@ -51,7 +51,7 @@ function* fetchUserInfoAsync(action: types.IGetUserInfoByIdAction) {
     yield put(setLoadingStatus(false))
   }
   catch (error) {
-    // console.error(error)
+    console.error(error)
     yield put(setLoadingStatus(false))
   }    
 }
@@ -70,7 +70,7 @@ function* fetchPostsInfoAsync() {
     yield put(setLoadingStatus(false))
   }
   catch (error) {
-    // console.error(error)
+    console.error(error)
     yield put(setLoadingStatus(false))
   }     
 }

@@ -98,7 +98,7 @@ const clientConfig = {
 
 const serverConfig = {
 
-  entry: ['babel-polyfill', './src/server/index.js'],
+  entry: ['babel-polyfill', './src/server/index.ts'],
   target: "node",
 
   output: {

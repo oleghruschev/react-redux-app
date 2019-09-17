@@ -1,7 +1,13 @@
 import Articles from 'components/pages/Articles';
 import Page2 from 'components/pages/Page2';
 
-const routes: object[] = [
+interface IRoute {
+  path: string,
+  exact: boolean,
+  component: any
+}
+
+const routes: IRoute[] = [
   {
     path: '/',
     exact: true,

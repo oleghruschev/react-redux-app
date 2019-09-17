@@ -1,4 +1,9 @@
-const renderTemplate = ({ content, preloadedState }) => {
+interface IProps {
+  content: string,
+  preloadedState: object
+}
+
+const renderTemplate = ({ content, preloadedState }: IProps): string => {
   return `
     <!doctype html>
     <html>

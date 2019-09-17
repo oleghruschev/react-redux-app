@@ -1,8 +1,8 @@
 
-import React, { }  from 'react';
-import { Router } from 'react-router-dom';
-import { renderRoutes } from 'react-router-config';
 import { createBrowserHistory } from 'history';
+import React, { }  from 'react';
+import { renderRoutes } from 'react-router-config';
+import { Router } from 'react-router-dom';
 
 import routes from './routes';
 

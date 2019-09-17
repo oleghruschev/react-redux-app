@@ -1,10 +1,9 @@
 // import Immutable from 'immutable';
 
-import * as actionTypes from 'constants/actionTypes';
-import { ArticlesActionTypes, IArticles,  } from 'types/articlesTypes';
+import * as types from 'types/articlesTypes';
 // import { immutableize } from 'helpers/immutableize';
 
-export const initialState: IArticles = {
+export const initialState: types.IArticles = {
   list: [],
   openArticle: 0,
 };
@@ -15,17 +14,17 @@ export const initialState: IArticles = {
 // });
 
 
-const articles = (state = initialState, action: ArticlesActionTypes): IArticles => {
+const articles = (state = initialState, action: types.ArticlesActionTypes): types.IArticles => {
   switch (action.type) {
-    case actionTypes.ARTICLE_SET_CREATE:
+    case types.ARTICLE_SET_CREATE:
       return {... state, list: [...state.list, action.payload]}
       // return state.update('list', list => list.push(action.article));
     
-    case actionTypes.ARTICLE_SET_OPEN:
+    case types.ARTICLE_SET_OPEN:
       return {...state, openArticle: action.id}
       // return state.set('openArticle', action.id)  
 
-    case actionTypes.ARTICLE_DELETE:
+    case types.ARTICLE_DELETE:
       const listFilter = state.list.filter(article => article.id !== action.id)
       
       return {...state, list: listFilter }

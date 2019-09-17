@@ -2,11 +2,11 @@ import { RouteComponentProps } from '@reach/router'
 import * as React from 'react'
 import { connect } from 'react-redux';
 
-import Article from './Article';
-import CreateArticle from './CreateArticle';
-
 import { IAppState } from 'types';
 import { IArticles } from 'types/articlesTypes';
+
+import Article from './Article';
+import CreateArticle from './CreateArticle';
 
 import styles from './Articles.scss';
 

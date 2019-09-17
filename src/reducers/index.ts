@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
 
 import articles from './articles';
+import serverData from './serverData';
 
 
 export const reducers = {
   articles,
-  // dataFromServer,
+  serverData
 }
 
 const rootReducer = combineReducers({

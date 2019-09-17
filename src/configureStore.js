@@ -5,7 +5,7 @@ import { all } from 'redux-saga/effects'
 
 import rootReducer from 'reducers';
 import { watchCreateArticle } from 'actions/articles';
-import { watchFetcInfoFromServer } from 'actions/dataFromServer';
+import { watchFetcInfoFromServer } from 'actions/serverData';
 
 const sagaMiddleware = createSagaMiddleware()
 

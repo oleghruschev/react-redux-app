@@ -9,7 +9,6 @@ const alias = {
   actions: path.join(rootFolder, 'src/actions'),
   helpers: path.join(rootFolder, 'src/helpers'),
   reducers: path.join(rootFolder, 'src/reducers'),
-  constants: path.join(rootFolder, 'src/constants'),
   images: path.join(rootFolder, 'src/assets/images'),
   mixins: path.join(rootFolder, 'src/styles/_mixins'),
   components: path.join(rootFolder, 'src/components'),

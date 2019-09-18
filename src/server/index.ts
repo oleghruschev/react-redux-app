@@ -2,14 +2,13 @@ import express from 'express';
 
 import handleRender from './handleRender';
 
-const app = express()
+const app = express();
 
 // Server static files
 app.use(express.static('build'));
 
-app.use(handleRender)
-
+app.use(handleRender);
 
 app.listen(3000, () => {
   console.log('Example app listening on port 3000!');
-})
+});

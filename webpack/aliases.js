@@ -1,7 +1,5 @@
-const path = require('path');
-
-const rootFolder = path.join(__dirname, '..');
-
+const path = require('path')
+const rootFolder = path.join(__dirname, '..')
 
 const alias = {
   types: path.join(rootFolder, 'src/types'),
@@ -15,5 +13,4 @@ const alias = {
   build: path.join(rootFolder, 'build'),
 }
 
-
-module.exports = alias;
+module.exports = alias

@@ -1,6 +1,6 @@
 interface IProps {
-  content: string,
-  preloadedState: object
+  content: string;
+  preloadedState: object;
 }
 
 const renderTemplate = ({ content, preloadedState }: IProps): string => {
@@ -14,12 +14,15 @@ const renderTemplate = ({ content, preloadedState }: IProps): string => {
       <body>
         <div id="app">${content.toString()}</div> 
         <script>
-          window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
+          window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(
+            /</g,
+            '\\u003c'
+          )}
         </script>
         <script src="/bundle.js"></script>
       </body>
     </html>
-  `
-}
+  `;
+};
 
 export default renderTemplate;

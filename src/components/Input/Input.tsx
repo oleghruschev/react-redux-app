@@ -3,9 +3,9 @@ import React from 'react';
 import styles from './Input.scss';
 
 interface IProps {
-  value?: string,
-  placeholder?: string,
-  onChange: any
+  value?: string;
+  placeholder?: string;
+  onChange: any;
 }
 
 const Input: React.FC<IProps> = ({ value, placeholder, onChange }) => (
@@ -16,6 +16,5 @@ const Input: React.FC<IProps> = ({ value, placeholder, onChange }) => (
     placeholder={placeholder}
   />
 );
-
 
 export default Input;

@@ -10,5 +10,5 @@ app.use(express.static('build'));
 app.use(handleRender);
 
 app.listen(3000, () => {
-  console.log('Example app listening on port 3000!');
+  console.log('App listening on port 3000!');
 });
